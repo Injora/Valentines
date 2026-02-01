@@ -16,7 +16,7 @@ A fun and interactive Valentine’s Day webpage featuring:
 
 ## Assets
 
-- Music files: `song.mp3`, `yay.mp3` (place in `assets/`)  
+- Music files: `song.mp3` (place in `assets/`)  
 - Images: Heart and cat icons (place in `assets/` or use CDN links)  
 
 ## Tech Stack
@@ -25,3 +25,4 @@ A fun and interactive Valentine’s Day webpage featuring:
 - No frameworks required  
 
 Enjoy spreading some ❤️ this Valentine’s Day!
+
