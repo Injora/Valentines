@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/heart.png">
+    <title>Yay 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 97vh;
+            background-color: #F2A1B3;
+            border: 20px solid #C2185B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive;
+            color: #880E4F;
+        }
+
+        .card {
+            text-align: center;
+            animation: pop 0.8s ease;
+        }
+
+        h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 28px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .hearts {
+            margin-top: 30px;
+            font-size: 40px;
+            animation: float 2s infinite ease-in-out;
+        }
+
+        img {
+            margin-top: 30px;
+            width: 220px;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.6);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>YAYYY 💖</h1>
+        <p>
+            You just made my heart skip a beat.<br>
+            Happy Valentine’s Day, Pookie 🥹
+        </p>
+
+        <div class="hearts">💗 💕 💖 💘 💞</div>
+
+        <img src="https://cdn-icons-png.flaticon.com/256/10443/10443856.png" alt="happy cat">
+    </div>
+</body>
+
+</html>

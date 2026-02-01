@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/heart.png">
+    <title>Valentines</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #F2A1B3;
+        border: 20px solid #C2185B;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 97vh;
+    }
+
+    #parent {
+        height: 60vh;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 10px solid rgb(214, 81, 81);
+        animation: dhadak 1s infinite;
+    }
+
+    .img-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .img-wrap img {
+        width: 200px;
+    }
+
+    .text {
+        color: #880E4F;
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        max-width: 80%;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        animation: float 2s ease-in-out infinite;
+        font-family: 'Comic Sans MS', cursive;
+    }
+
+    #btpar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20vw;
+
+    }
+
+    .button {
+        color: white;
+        font-size: 30px;
+        height: 10vh;
+        width: 10vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    #yes {
+        background-color: #D81B60;
+        font-family: 'Comic Sans MS', cursive;
+        height: 10vh;
+        width: 10vw;
+    }
+
+    #yes:hover {
+        border: 5px solid white;
+    }
+
+    #no {
+        background-color: #880E4F;
+        font-family: 'Comic Sans MS', cursive;
+        height: 10vh;
+        width: 10vw;
+    }
+
+    #no:hover {
+        border: 5px solid white;
+    }
+
+    @keyframes dhadak {
+        0% {
+            border: 10px solid rgb(214, 81, 81);
+        }
+
+        25% {
+            border: 15px solid rgb(214, 81, 81);
+        }
+
+        50% {
+            border: 20px solid rgb(214, 81, 81);
+        }
+
+        75% {
+            border: 15px solid rgb(214, 81, 81);
+        }
+
+        100% {
+            border: 10px solid rgb(214, 81, 81);
+        }
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-6px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<body>
+    <audio id="bg-music" src="/assets/song.mp3" autoplay loop></audio>
+    <div id="parent">
+        <div class="img-wrap">
+            <div class="text">
+                Pookie, will you please be my valentine?
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/256/10443/10443856.png" alt="cat">
+        </div>
+
+
+        <div id="btpar">
+            <div class="button" id="yes">
+                Yes
+            </div>
+            <div class="button" id="no">
+                No
+            </div>
+        </div>
+    </div>
+    <script>
+        const music = document.getElementById("bg-music");
+        const nobtn = document.getElementById("no");
+        const yesBtn = document.getElementById("yes");
+        const parent = document.getElementById("parent");
+        document.body.addEventListener("click", () => {
+            music.play();
+        }, { once: true });
+
+        yesBtn.addEventListener("click", () => {
+            window.location.href = "yes.html";
+        });
+        let posX = 0;
+        let posY = 0;
+        nobtn.style.position = "relative";
+        nobtn.style.transition = "transform 0.2s ease";
+        nobtn.addEventListener("mouseover", () => {
+            const min = 10;
+            const max = 15;
+            let dx = (Math.random() > 0.5 ? 1 : -1) * (min + Math.random() * (max - min));
+            let dy = (Math.random() > 0.5 ? 1 : -1) * (min + Math.random() * (max - min));
+            const leftBound = -700;
+            const rightBound = 500;
+            const upBound = -700;
+            const downBound = 400;
+            const futureX = posX * window.innerWidth / 100 + dx * window.innerWidth / 100;
+            const futureY = posY * window.innerHeight / 100 + dy * window.innerHeight / 100;
+            if (futureX < leftBound) dx = Math.abs(dx);
+            if (futureX > rightBound) dx = -Math.abs(dx);
+            if (futureY < upBound) dy = Math.abs(dy);
+            if (futureY > downBound) dy = -Math.abs(dy);
+            posX += dx;
+            posY += dy;
+            nobtn.style.transform = `translate(${posX}vw, ${posY}vh)`;
+        });
+
+    </script>
+</body>
+
+</html>
