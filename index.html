@@ -156,6 +156,7 @@
         const nobtn = document.getElementById("no");
         const yesBtn = document.getElementById("yes");
         const parent = document.getElementById("parent");
+        let count = 0
         document.body.addEventListener("click", () => {
             music.play();
         }, { once: true });
@@ -168,6 +169,9 @@
         nobtn.style.position = "relative";
         nobtn.style.transition = "transform 0.2s ease";
         nobtn.addEventListener("mouseover", () => {
+            count++
+            const scale = 1 + count * 0.15;
+            yesBtn.style.transform = `scale(${scale})`;
             const min = 10;
             const max = 15;
             let dx = (Math.random() > 0.5 ? 1 : -1) * (min + Math.random() * (max - min));

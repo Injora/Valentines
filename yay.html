@@ -19,6 +19,7 @@
             align-items: center;
             font-family: 'Comic Sans MS', cursive;
             color: #880E4F;
+            animation: disco 1s infinite;
         }
 
         .card {
@@ -71,6 +72,41 @@
 
             100% {
                 transform: translateY(0);
+            }
+        }
+        @keyframes disco {
+            0%{
+                background-color: #F4A7B9;
+            }
+            10%{
+                background-color: #E8B4BC;
+            }
+            20%{
+                background-color: #FFC1A1;
+            } 
+            30%{
+                background-color: #FFF6EC;
+            } 
+            40%{
+                background-color: #FFD1DC
+            }
+            50%{
+                background-color: #FFB7CE;
+            }
+            60%{
+                background-color: #F48FB1;
+            }
+            70%{
+                background-color: #F6D7A7;
+            }
+            80%{
+                background-color: #D8D8D8;
+            }
+            90%{
+                background-color: #FAFAFA;
+            }
+            100%{
+                background-color: #F4A7B9;
             }
         }
     </style>
