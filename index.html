@@ -73,11 +73,14 @@
     }
 
     #yes {
-        background-color: #D81B60;
-        font-family: 'Comic Sans MS', cursive;
-        height: 10vh;
-        width: 10vw;
-    }
+    background-color: #D81B60;
+    font-family: 'Comic Sans MS', cursive;
+    height: 10vh;
+    width: 10vw;
+    position: relative;
+    z-index: 10;
+}
+
 
     #yes:hover {
         border: 5px solid white;
@@ -88,6 +91,8 @@
         font-family: 'Comic Sans MS', cursive;
         height: 10vh;
         width: 10vw;
+        position: relative;
+        z-index: 1;
     }
 
     #no:hover {
@@ -171,7 +176,10 @@
         nobtn.addEventListener("mouseover", () => {
             count++
             const scale = 1 + count * 0.15;
-            yesBtn.style.transform = `scale(${scale})`;
+            yesBtn.style.transform = "scale(1)";
+            requestAnimationFrame(() => {
+                yesBtn.style.transform = `scale(${scale})`;
+            });
             const min = 10;
             const max = 15;
             let dx = (Math.random() > 0.5 ? 1 : -1) * (min + Math.random() * (max - min));
