@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/heart.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Bebas+Neue&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=MedievalSharp&family=Momo+Signature&family=Noto+Serif+JP:wght@200..900&family=Oswald:wght@200..700&family=Playwrite+CZ:wght@100..400&family=Roboto+Slab:wght@100..900&display=swap"
+        rel="stylesheet">
     <title>Yay 💖</title>
 
     <style>
@@ -17,7 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Comic Sans MS', cursive;
+            font-family: "Allura", cursive;
             color: #880E4F;
             animation: disco 1s infinite;
         }
@@ -33,7 +38,7 @@
         }
 
         p {
-            font-size: 28px;
+            font-size: 48px;
             max-width: 600px;
             margin: auto;
         }
@@ -46,7 +51,7 @@
 
         img {
             margin-top: 30px;
-            width: 220px;
+            width: 420px;
         }
 
         @keyframes pop {
@@ -74,43 +79,63 @@
                 transform: translateY(0);
             }
         }
+
         @keyframes disco {
-            0%{
+            0% {
                 background-color: #F4A7B9;
             }
-            10%{
+
+            10% {
                 background-color: #E8B4BC;
             }
-            20%{
+
+            20% {
                 background-color: #FFC1A1;
-            } 
-            30%{
+            }
+
+            30% {
                 background-color: #FFF6EC;
-            } 
-            40%{
+            }
+
+            40% {
                 background-color: #FFD1DC
             }
-            50%{
+
+            50% {
                 background-color: #FFB7CE;
             }
-            60%{
+
+            60% {
                 background-color: #F48FB1;
             }
-            70%{
+
+            70% {
                 background-color: #F6D7A7;
             }
-            80%{
+
+            80% {
                 background-color: #D8D8D8;
             }
-            90%{
+
+            90% {
                 background-color: #FAFAFA;
             }
-            100%{
+
+            100% {
                 background-color: #F4A7B9;
             }
         }
     </style>
 </head>
+<script>
+    window.onload = function () {
+        const music = document.getElementById("bgMusic");
+        music.volume = 0.5;
+        music.play().catch(() => {
+            console.log("Autoplay blocked 😔 Waiting for interaction.");
+        });
+    };
+</script>
 
 <body>
     <div class="card">
@@ -122,8 +147,13 @@
 
         <div class="hearts">💗 💕 💖 💘 💞</div>
 
-        <img src="https://cdn-icons-png.flaticon.com/256/10443/10443856.png" alt="happy cat">
+        <img src="assets/bella-shocked.gif" alt="happy cat">
     </div>
+    <audio id="bgMusic" loop>
+        <source src="assets/yay.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
+
 </body>
 
 </html>
