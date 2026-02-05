@@ -254,7 +254,7 @@
 
     .text {
         color: #880E4F;
-        font-size: 48px;
+        font-size: 68px;
         font-weight: bold;
         text-align: center;
         max-width: 80%;
@@ -313,7 +313,7 @@
 
     #yes {
         background-color: #D81B60;
-        font-family: 'Comic Sans MS', cursive;
+        font-family: 'Allura', cursive;
         height: 10vh;
         width: 10vw;
         position: relative;
@@ -327,7 +327,7 @@
 
     #no {
         background-color: #880E4F;
-        font-family: 'Comic Sans MS', cursive;
+        font-family: "Allura", cursive;
         height: 10vh;
         width: 10vw;
         position: relative;
@@ -337,6 +337,29 @@
     #no:hover {
         border: 5px solid white;
     }
+
+    .glow-cat {
+        width: 200px;
+        animation: pinkGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes pinkGlow {
+        0% {
+            filter:
+                drop-shadow(0 0 4px rgba(255, 105, 180, 0.4)) drop-shadow(0 0 8px rgba(255, 105, 180, 0.3));
+        }
+
+        50% {
+            filter:
+                drop-shadow(0 0 10px rgba(255, 105, 180, 0.8)) drop-shadow(0 0 18px rgba(255, 20, 147, 0.7)) drop-shadow(0 0 28px rgba(255, 20, 147, 0.5));
+        }
+
+        100% {
+            filter:
+                drop-shadow(0 0 4px rgba(255, 105, 180, 0.4)) drop-shadow(0 0 8px rgba(255, 105, 180, 0.3));
+        }
+    }
+
 
     @keyframes dhadak {
         0% {
@@ -487,7 +510,7 @@
             <div class="text">
                 Pookie, will you please be my valentine?
             </div>
-            <img src="https://cdn-icons-png.flaticon.com/256/10443/10443856.png" alt="cat">
+            <img src="https://cdn-icons-png.flaticon.com/256/10443/10443856.png" alt="cat" class="glow-cat">
         </div>
 
         <div id="btpar">
@@ -554,24 +577,19 @@
                 yesBtn.style.transform = `scale(${scale})`;
             });
 
-            const min = 10;
-            const max = 15;
+            const step = 8 + Math.random() * 8;
+            let dx = (Math.random() > 0.5 ? 1 : -1) * step;
+            let dy = (Math.random() > 0.5 ? 1 : -1) * step;
 
-            let dx = (Math.random() > 0.5 ? 1 : -1) * (min + Math.random() * (max - min));
-            let dy = (Math.random() > 0.5 ? 1 : -1) * (min + Math.random() * (max - min));
+            const MIN_X = -40;
+            const MAX_X = 40;
+            const MIN_Y = -25;
+            const MAX_Y = 25;
 
-            const leftBound = -700;
-            const rightBound = 500;
-            const upBound = -700;
-            const downBound = 400;
-
-            const futureX = posX * window.innerWidth / 100 + dx * window.innerWidth / 100;
-            const futureY = posY * window.innerHeight / 100 + dy * window.innerHeight / 100;
-
-            if (futureX < leftBound) dx = Math.abs(dx);
-            if (futureX > rightBound) dx = -Math.abs(dx);
-            if (futureY < upBound) dy = Math.abs(dy);
-            if (futureY > downBound) dy = -Math.abs(dy);
+            let nextX = posX + dx;
+            let nextY = posY + dy;
+            if (nextX < MIN_X || nextX > MAX_X) dx *= -1;
+            if (nextY < MIN_Y || nextY > MAX_Y) dy *= -1;
 
             posX += dx;
             posY += dy;
