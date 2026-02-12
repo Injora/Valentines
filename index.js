@@ -27,9 +27,6 @@
         });
 
 
-
-
-
         let count = 0
         document.body.addEventListener("click", () => {
             music.play();
@@ -45,7 +42,7 @@
         function dodgeNoButton() {
             count++;
 
-            const scale = 1 + count * 0.15;
+            const scale = 1 + count * 0.25;
             yesBtn.style.transform = "scale(1)";
             requestAnimationFrame(() => {
                 yesBtn.style.transform = `scale(${scale})`;
